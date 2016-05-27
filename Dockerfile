@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 MAINTAINER Sidesplitter, https://github.com/SexualRhinoceros/MusicBot
-MAINTAINER dzirtt 
+MAINTAINER dzirtt, https://github.com/dzirtt/musicBot_alpine 
 
 ##Install dependencies
 #donwload, unpack
