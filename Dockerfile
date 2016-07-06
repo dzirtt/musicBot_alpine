@@ -17,8 +17,8 @@ RUN wget https://bootstrap.pypa.io/get-pip.py \
 	
 #Install PIP dependencies from requirements.txt
 RUN pip install discord.py[voice] \
-							youtube_dl \
-							pip
+		youtube_dl \
+		pip
 							
 #download musicBot		
 RUN git clone -b master --single-branch https://github.com/SexualRhinoceros/MusicBot.git /musicBot							
