@@ -4,7 +4,7 @@ MAINTAINER Sidesplitter, https://github.com/SexualRhinoceros/MusicBot
 MAINTAINER dzirtt, https://github.com/dzirtt/musicBot_alpine 
 
 ##Install dependencies
-#donwload, unpack
+#donwload
 RUN apk add --update wget unzip libcurl git
 #musicbot deps
 RUN apk add python3 python3-dev ffmpeg opus-dev
