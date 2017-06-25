@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.5
 
 #ypdate 10-02-17
 MAINTAINER Sidesplitter, https://github.com/SexualRhinoceros/MusicBot
@@ -13,11 +13,13 @@ RUN apk add python3 python3-dev ffmpeg opus-dev
 RUN apk add gcc make libc-dev binutils libffi-dev
 
 #Install Pip
-RUN wget https://bootstrap.pypa.io/get-pip.py \
-    && python3.5 get-pip.py
+#RUN wget https://bootstrap.pypa.io/get-pip.py \
+#    && python3.5 get-pip.py
 	
 #Install PIP dependencies from requirements.txt
-RUN pip install discord.py[voice] \
+#--trusted-host pypi.python.org becose of error with SSL cert
+#more here https://github.com/pypa/pip/issues/4205
+RUN python3 -m pip install discord.py[voice] \
 		youtube_dl \
 		pip
 							
@@ -32,4 +34,4 @@ RUN apk del gcc make git && \
 #Add volume for configuration
 VOLUME /musicBot/config
 
-CMD python3.5 run.py
+CMD python3 run.py
