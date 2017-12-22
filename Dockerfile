@@ -11,10 +11,6 @@ RUN apk add --update wget unzip libcurl git
 RUN apk add python3 python3-dev ffmpeg opus-dev
 #compilation
 RUN apk add gcc make libc-dev binutils libffi-dev
-
-#Install Pip
-#RUN wget https://bootstrap.pypa.io/get-pip.py \
-#    && python3.5 get-pip.py
 	
 #Install PIP dependencies from requirements.txt
 #--trusted-host pypi.python.org becose of error with SSL cert
@@ -27,9 +23,13 @@ RUN python3 -m pip install discord.py[voice] \
 RUN git clone -b master --single-branch https://github.com/SexualRhinoceros/MusicBot.git /musicBot							
 WORKDIR /musicBot
 
+#Install required dependencies
+RUN python3 -m pip install -r requirements.txt
+
 #cleanup
 RUN apk del gcc make git && \
 		rm -rf /var/lib/apt/lists/*
+
 
 #Add volume for configuration
 VOLUME /musicBot/config
